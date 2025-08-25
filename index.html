@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editkaro.in - Professional Video Editing & Social Media Marketing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .portfolio-item {
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .category-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .category-btn:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Lightbox */
+        
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .lightbox video {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 12px;
+        }
+        
+        #mobile-menu {
+            display: none;
+            /* Ensure it's hidden by default */
+            position: absolute;
+            /* Position it absolutely */
+            top: 100%;
+            /* Position it below the nav */
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            /* Slightly transparent background */
+            z-index: 50;
+            /* Ensure it appears above other content */
+        }
+    </style>
+</head>
+
+<body class="text-white min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-black/90 backdrop-blur-md z-50 border-b border-purple-500/20">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center mr-3">
+                        <i class="fas fa-film text-white"></i>
+                    </div>
+                    <span class="text-xl font-bold text-gradient">Editkaro.in</span>
+                </div>
+
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-purple-400">Home</a>
+                    <a href="#services" class="hover:text-purple-400">Services</a>
+                    <a href="#portfolio" class="hover:text-purple-400">Portfolio</a>
+                    <a href="#about" class="hover:text-purple-400">About</a>
+                    <a href="#testimonials" class="hover:text-purple-400">Testimonials</a>
+                    <a href="#contact" class="hover:text-purple-400">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menu-btn" class="md:hidden text-white">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Nav -->
+    <div id="mobile-menu" class="hidden bg-black/95 border-t border-purple-500/20">
+        <div class="flex flex-col space-y-4 p-6">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#about">About</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section id="home" class="pt-32 pb-20 px-6">
+        <div class="container mx-auto text-center" data-aos="fade-up">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                Transform Your <span class="text-gradient">Vision</span> Into
+                <span class="text-gradient">Visual</span> Mastery
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8">
+                Professional video editing and social media marketing that elevates your brand's storytelling.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="px-8 py-4 gradient-bg rounded-full font-semibold hover:scale-105 transition-transform">Get
+                    Started</button>
+                <a href="#portfolio" class="px-8 py-4 border border-purple-500 rounded-full font-semibold hover:bg-purple-500/10">View
+                    Portfolio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-20 px-6 bg-black/30">
+        <div class="container mx-auto text-center" data-aos="fade-up">
+            <h2 class="text-4xl font-bold mb-4">Our <span class="text-gradient">Services</span></h2>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-12">Tailored solutions for your brand:</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="portfolio-item bg-gray-800/50 p-8 rounded-2xl" data-aos="zoom-in">
+                    <i class="fas fa-clock text-3xl mb-4 text-purple-400"></i>
+                    <h3 class="text-2xl font-semibold mb-4">Short-form</h3>
+                    <p>Engaging Reels, TikToks & Shorts designed to capture attention and go viral.</p>
+                </div>
+                <div class="portfolio-item bg-gray-800/50 p-8 rounded-2xl" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fas fa-film text-3xl mb-4 text-purple-400"></i>
+                    <h3 class="text-2xl font-semibold mb-4">Long-form</h3>
+                    <p>High-quality Documentaries, interviews & podcasts that tell your story.</p>
+                </div>
+                <div class="portfolio-item bg-gray-800/50 p-8 rounded-2xl" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-gamepad text-3xl mb-4 text-purple-400"></i>
+                    <h3 class="text-2xl font-semibold mb-4">Gaming</h3>
+                    <p>Epic montages & esports edits that showcase your gaming skills.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="py-20 px-6">
+        <div class="container mx-auto text-center" data-aos="fade-up">
+            <h2 class="text-4xl font-bold mb-4">Our <span class="text-gradient">Portfolio</span></h2>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-12">Showcasing our best work:</p>
+
+            <!-- Filters -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="category-btn px-6 py-3 bg-purple-600 rounded-full font-semibold" data-filter="all">All</button>
+                <button class="category-btn px-6 py-3 bg-gray-700 rounded-full font-semibold" data-filter="short-form">Short-form</button>
+                <button class="category-btn px-6 py-3 bg-gray-700 rounded-full font-semibold" data-filter="gaming">Gaming</button>
+                <button class="category-btn px-6 py-3 bg-gray-700 rounded-full font-semibold" data-filter="football">Football</button>
+                <button class="category-btn px-6 py-3 bg-gray-700 rounded-full font-semibold" data-filter="Ecommerce Ads">Ecommerce Ads</button>
+                <button class="category-btn px-6 py-3 bg-gray-700 rounded-full font-semibold" data-filter="Documentary Style">Documentary Style</button>
+                <button class="category-btn px-6 py-3 bg-gray-700 rounded-full font-semibold" data-filter="Color Grading">Color Grading</button>
+                <button class="category-btn px-6 py-3 bg-gray-700 rounded-full font-semibold" data-filter="Anime Videos">Anime Videos</button>
+                <button class="category-btn px-6 py-3 bg-gray-700 rounded-full font-semibold" data-filter="Ads">Ads</button>
+            </div>
+
+            <!-- Videos -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="portfolio-item group relative" data-category="short-form" data-aos="fade-up" onclick="openLightbox('https://www.w3schools.com/html/mov_bbb.mp4')">
+                    <video class="w-full h-64 object-cover" umute>
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex justify-center items-center text-xl">
+                        ▶ Social Media Reel
+                    </div>
+                </div>
+
+                <div class="portfolio-item group relative" data-category="gaming" data-aos="fade-up" data-aos-delay="100" onclick="openLightbox('https://www.w3schools.com/html/mov_bbb.mp4')">
+                    <video class="w-full h-64 object-cover" umute>
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex justify-center items-center text-xl">
+                        ▶ Gaming Montage
+                    </div>
+                </div>
+
+                <div class="portfolio-item group relative" data-category="football" data-aos="fade-up" data-aos-delay="200" onclick="openLightbox('https://www.w3schools.com/html/mov_bbb.mp4')">
+                    <video class="w-full h-64 object-cover" umute>
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex justify-center items-center text-xl">
+                        ▶ Football Edit
+                    </div>
+                </div>
+                <div class="portfolio-item group relative" data-category="Ecommerce Ads" data-aos="fade-up" data-aos-delay="200" onclick="openLightbox('https://www.w3schools.com/html/mov_bbb.mp4')">
+                    <video class="w-full h-64 object-cover" unmute>
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex justify-center items-center text-xl">
+                        ▶ Ecommerce Ads
+                    </div>
+                </div>
+                <div class="portfolio-item group relative" data-category="Documentary Style" data-aos="fade-up" data-aos-delay="200" onclick="openLightbox('https://www.w3schools.com/html/mov_bbb.mp4')">
+                    <video class="w-full h-64 object-cover" unmute>
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex justify-center items-center text-xl">
+                        ▶Documentary Style
+                    </div>
+                </div>
+
+                <div class="portfolio-item group relative" data-category="Color Grading" data-aos="fade-up" data-aos-delay="200" onclick="openLightbox('https://www.w3schools.com/html/mov_bbb.mp4')">
+                    <video class="w-full h-64 object-cover" unmute>
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex justify-center items-center text-xl">
+                        ▶Color Grading
+                    </div>
+                </div>
+                <div class="portfolio-item group relative" data-category="Anime Videos" data-aos="fade-up" data-aos-delay="200" onclick="openLightbox('https://www.w3schools.com/html/mov_bbb.mp4')">
+                    <video class="w-full h-64 object-cover" unmute>
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex justify-center items-center text-xl">
+                        ▶Anime Videos
+                    </div>
+                </div>
+                <div class="portfolio-item group relative" data-category="Ads" data-aos="fade-up" data-aos-delay="200" onclick="openLightbox('https://www.w3schools.com/html/mov_bbb.mp4')">
+                    <video class="w-full h-64 object-cover" unmute>
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex justify-center items-center text-xl">
+                        ▶Ads
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-20 px-6 bg-black/30">
+        <div class="container mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+                <h2 class="text-4xl font-bold mb-6">About <span class="text-gradient">Editkaro.in</span></h2>
+                <p class="text-lg text-gray-300 mb-4">We are a passionate team of video editors and social media experts dedicated to transforming your content into engaging visual stories.</p>
+                <p class="text-gray-400">Our expertise spans across multiple genres and platforms, ensuring your message reaches its audience effectively. We believe in the power of storytelling and strive to create content that resonates with viewers.</p>
+            </div>
+            <img src="https://images.pexels.com/photos/66134/pexels-photo-66134.jpeg?auto=compress&cs=tinysrgb&w=1600" class="rounded-2xl shadow-lg" alt="About Us" data-aos="fade-left">
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-20 px-6">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-12">What Our <span class="text-gradient">Clients Say</span></h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-800/50 p-8 rounded-2xl shadow-lg" data-aos="flip-left">
+                    <p class="text-gray-300 mb-6">"Editkaro.in turned my raw footage into a masterpiece! Their editing skills are top-notch."</p>
+                    <h4 class="font-semibold text-purple-400">— Rahul Sharma</h4>
+                    <span class="text-gray-400 text-sm">Content Creator</span>
+                </div>
+                <div class="bg-gray-800/50 p-8 rounded-2xl shadow-lg" data-aos="flip-left" data-aos-delay="100">
+                    <p class="text-gray-300 mb-6">"Their short-form video edits helped me grow my Instagram by 200%!"</p>
+                    <h4 class="font-semibold text-purple-400">— Priya Verma</h4>
+                    <span class="text-gray-400 text-sm">Fashion Influencer</span>
+                </div>
+                <div class="bg-gray-800/50 p-8 rounded-2xl shadow-lg" data-aos="flip-left" data-aos-delay="200">
+                    <p class="text-gray-300 mb-6">"Professional, creative, and always on time. Highly recommended!"</p>
+                    <h4 class="font-semibold text-purple-400">— John Williams</h4>
+                    <span class="text-gray-400 text-sm">Business Owner</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 px-6 bg-black/30">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-6">Get in <span class="text-gradient">Touch</span></h2>
+                <p class="text-gray-300 text-lg">We’d love to hear from you. Let’s build something amazing together!</p>
+            </div>
+
+            <!-- Centered Contact Info Card -->
+            <div class="flex justify-center">
+                <div class="space-y-8 max-w-md w-full bg-gray-800/60 p-10 rounded-2xl shadow-2xl backdrop-blur-lg 
+                  transition duration-300 hover:shadow-purple-500/50 hover:scale-105" data-aos="fade-up">
+
+                    <!-- Office -->
+                    <div class="flex items-center space-x-4">
+                        <div class="w-14 h-14 flex items-center justify-center rounded-xl gradient-bg">
+                            <i class="fas fa-map-marker-alt text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-xl">Our Office</h4>
+                            <p class="text-gray-400">Delhi, India</p>
+                        </div>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="flex items-center space-x-4">
+                        <div class="w-14 h-14 flex items-center justify-center rounded-xl gradient-bg">
+                            <i class="fas fa-phone-alt text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-xl">Call Us</h4>
+                            <p class="text-gray-400">+91 98765 43210</p>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="flex items-center space-x-4">
+                        <div class="w-14 h-14 flex items-center justify-center rounded-xl gradient-bg">
+                            <i class="fas fa-envelope text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-xl">Email</h4>
+                            <p class="text-gray-400">contact@editkaro.in</p>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="flex justify-center space-x-4 pt-4">
+                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-700 
+                           hover:shadow-lg hover:shadow-blue-500/70 hover:bg-blue-600 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-700 
+                           hover:shadow-lg hover:shadow-pink-500/70 hover:bg-pink-600 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-700 
+                           hover:shadow-lg hover:shadow-sky-400/70 hover:bg-sky-500 transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-700 
+                           hover:shadow-lg hover:shadow-purple-500/70 hover:bg-purple-600 transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <video id="lightboxVideo" controls autoplay></video>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById("menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+
+        // Filters
+        const filterButtons = document.querySelectorAll(".category-btn");
+        const portfolioItems = document.querySelectorAll(".portfolio-item");
+        filterButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                filterButtons.forEach(btn => btn.classList.replace("bg-purple-600", "bg-gray-700"));
+                button.classList.replace("bg-gray-700", "bg-purple-600");
+                const filter = button.getAttribute("data-filter");
+                portfolioItems.forEach(item => {
+                    item.style.display = (filter === "all" || item.getAttribute("data-category") === filter) ? "block" : "none";
+                });
+            });
+        });
+
+        // Lightbox
+        const lightbox = document.getElementById("lightbox");
+        const lightboxVideo = document.getElementById("lightboxVideo");
+
+        function openLightbox(src) {
+            lightboxVideo.src = src;
+            lightbox.style.display = "flex";
+        }
+        lightbox.addEventListener("click", (e) => {
+            if (e.target === lightbox) {
+                lightboxVideo.pause();
+                lightboxVideo.src = "";
+                lightbox.style.display = "none";
+            }
+        });
+    </script>
+</body>
+
+</html>
